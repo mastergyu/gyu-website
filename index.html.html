@@ -1,0 +1,549 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Icon Generator</title>
+  <!-- Google Fonts - Inter for clean typography -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>body { font-family: "Inter", sans-serif; background-color: initial; background-image: linear-gradient(135deg, rgb(26, 26, 46) 0%, rgb(22, 33, 62) 100%); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 2.5rem; padding-right: 2.5rem; padding-bottom: 2.5rem; padding-left: 2.5rem; color: rgb(224, 224, 224); display: flex; flex-direction: column; align-items: center; min-height: 100vh; box-sizing: border-box; }h1 { font-size: 3.2rem; margin-bottom: 0.6rem; color: rgb(233, 69, 96); font-weight: 800; text-align: center; text-shadow: 0 0 15px rgba(233, 69, 96, 0.4); }h2 { font-size: 1.2rem; font-weight: 500; margin-bottom: 3rem; color: rgb(176, 176, 176); text-align: center; }h3 { font-size: 1.4rem; color: rgb(224, 224, 224); margin-bottom: 1.2rem; font-weight: 600; }.form { max-width: 700px; width: 100%; display: flex; flex-direction: column; background-color: rgb(15, 52, 96); background-image: initial; padding-top: 3rem; padding-right: 3rem; padding-bottom: 3rem; padding-left: 3rem; border-top-left-radius: 1.5rem; border-top-right-radius: 1.5rem; border-bottom-right-radius: 1.5rem; border-bottom-left-radius: 1.5rem; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5) , 0 0 0 1px rgba(255, 255, 255, 0.08); box-sizing: border-box; border-top-color: rgb(46, 89, 158); border-top-style: solid; border-top-width: 1px; border-right-color: rgb(46, 89, 158); border-right-style: solid; border-right-width: 1px; border-bottom-color: rgb(46, 89, 158); border-bottom-style: solid; border-bottom-width: 1px; border-left-color: rgb(46, 89, 158); border-left-style: solid; border-left-width: 1px; }label { font-weight: 600; color: rgb(201, 214, 223); margin-bottom: 0.35rem; display: block; font-size: 1rem; }input[type="text"], select { width: 100%; padding-top: 1rem; padding-right: 1rem; padding-bottom: 1rem; padding-left: 1rem; font-size: 1rem; border-top-color: rgb(44, 74, 126); border-top-style: solid; border-top-width: 2px; border-right-color: rgb(44, 74, 126); border-right-style: solid; border-right-width: 2px; border-bottom-color: rgb(44, 74, 126); border-bottom-style: solid; border-bottom-width: 2px; border-left-color: rgb(44, 74, 126); border-left-style: solid; border-left-width: 2px; border-top-left-radius: 0.8rem; border-top-right-radius: 0.8rem; border-bottom-right-radius: 0.8rem; border-bottom-left-radius: 0.8rem; box-sizing: border-box; transition-property: border-color, box-shadow, background-color; transition-duration: 0.3s, 0.3s, 0.3s; transition-timing-function: ease, ease, ease; background-color: rgb(27, 58, 107); color: rgb(240, 240, 240); }input[type="text"]:focus, select:focus { border-top-color: rgb(255, 87, 34); border-right-color: rgb(255, 87, 34); border-bottom-color: rgb(255, 87, 34); border-left-color: rgb(255, 87, 34); box-shadow: 0 0 0 4px rgba(255, 87, 34, 0.3); outline-style: none; background-color: rgb(36, 75, 136); }.checkbox-group { display: flex; flex-wrap: wrap; margin-top: 0.8rem; margin-bottom: 0.8rem; }.checkbox-group label { font-weight: 500; display: flex; align-items: center; font-size: 0.95rem; color: rgb(201, 214, 223); cursor: pointer; }.checkbox-group input[type="checkbox"] { width: auto; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; transform: scale(1.2); cursor: pointer; }button { background-color: initial; background-image: linear-gradient(135deg, rgb(233, 69, 96) 0%, rgb(255, 87, 34) 100%); color: white; padding-top: 1rem; padding-right: 2.5rem; padding-bottom: 1rem; padding-left: 2.5rem; border-top-color: initial; border-top-style: none; border-top-width: initial; border-right-color: initial; border-right-style: none; border-right-width: initial; border-bottom-color: initial; border-bottom-style: none; border-bottom-width: initial; border-left-color: initial; border-left-style: none; border-left-width: initial; font-size: 1.1rem; border-top-left-radius: 0.8rem; border-top-right-radius: 0.8rem; border-bottom-right-radius: 0.8rem; border-bottom-left-radius: 0.8rem; cursor: pointer; transition-property: background, transform, box-shadow; transition-duration: 0.3s, 0.2s, 0.3s; transition-timing-function: ease, ease, ease; margin-top: 1.5rem; font-weight: 700; box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4) , 0 0 0 1px rgba(255, 255, 255, 0.05); letter-spacing: 0.03em; }button:hover { background-color: initial; background-image: linear-gradient(135deg, rgb(204, 54, 80) 0%, rgb(216, 72, 27) 100%); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(233, 69, 96, 0.5) , 0 0 0 1px rgba(255, 255, 255, 0.1); }button:active { transform: translateY(0); box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3); }.result { margin-top: 3rem; width: 100%; max-width: 700px; background-color: rgb(15, 52, 96); background-image: initial; padding-top: 3rem; padding-right: 3rem; padding-bottom: 3rem; padding-left: 3rem; border-top-left-radius: 1.5rem; border-top-right-radius: 1.5rem; border-bottom-right-radius: 1.5rem; border-bottom-left-radius: 1.5rem; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5) , 0 0 0 1px rgba(255, 255, 255, 0.08); box-sizing: border-box; border-top-color: rgb(46, 89, 158); border-top-style: solid; border-top-width: 1px; border-right-color: rgb(46, 89, 158); border-right-style: solid; border-right-width: 1px; border-bottom-color: rgb(46, 89, 158); border-bottom-style: solid; border-bottom-width: 1px; border-left-color: rgb(46, 89, 158); border-left-style: solid; border-left-width: 1px; }.prompt-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; }.copy-button { background-color: initial; background-image: none; border-top-color: initial; border-top-style: none; border-top-width: initial; border-right-color: initial; border-right-style: none; border-right-width: initial; border-bottom-color: initial; border-bottom-style: none; border-bottom-width: initial; border-left-color: initial; border-left-style: none; border-left-width: initial; color: rgb(201, 214, 223); font-size: 1.2rem; cursor: pointer; transition-property: color, transform; transition-duration: 0.2s, 0.2s; transition-timing-function: ease, ease; padding-top: 0.5rem; padding-right: 0.5rem; padding-bottom: 0.5rem; padding-left: 0.5rem; border-top-left-radius: 0.5rem; border-top-right-radius: 0.5rem; border-bottom-right-radius: 0.5rem; border-bottom-left-radius: 0.5rem; }.copy-button:hover { color: rgb(255, 87, 34); transform: scale(1.1); }.copy-feedback { font-size: 0.85rem; color: rgb(76, 175, 80); margin-left: 0.5rem; opacity: 0; }.copy-feedback.show { opacity: 1; }textarea { width: 100%; height: 200px; padding-top: 1.2rem; padding-right: 1.2rem; padding-bottom: 1.2rem; padding-left: 1.2rem; font-size: 0.98rem; border-top-color: rgb(44, 74, 126); border-top-style: solid; border-top-width: 2px; border-right-color: rgb(44, 74, 126); border-right-style: solid; border-right-width: 2px; border-bottom-color: rgb(44, 74, 126); border-bottom-style: solid; border-bottom-width: 2px; border-left-color: rgb(44, 74, 126); border-left-style: solid; border-left-width: 2px; border-top-left-radius: 0.8rem; border-top-right-radius: 0.8rem; border-bottom-right-radius: 0.8rem; border-bottom-left-radius: 0.8rem; background-color: rgb(27, 58, 107); background-image: initial; box-sizing: border-box; line-height: 1.7; color: rgb(240, 240, 240); transition-property: border-color, box-shadow, background-color; transition-duration: 0.3s, 0.3s, 0.3s; transition-timing-function: ease, ease, ease; }textarea:focus { border-top-color: rgb(255, 87, 34); border-right-color: rgb(255, 87, 34); border-bottom-color: rgb(255, 87, 34); border-left-color: rgb(255, 87, 34); box-shadow: 0 0 0 4px rgba(255, 87, 34, 0.3); outline-style: none; background-color: rgb(36, 75, 136); }.result-image { margin-top: 3rem; width: 100%; max-width: 700px; text-align: center; background-color: rgb(15, 52, 96); background-image: initial; padding-top: 3rem; padding-right: 3rem; padding-bottom: 3rem; padding-left: 3rem; border-top-left-radius: 1.5rem; border-top-right-radius: 1.5rem; border-bottom-right-radius: 1.5rem; border-bottom-left-radius: 1.5rem; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5) , 0 0 0 1px rgba(255, 255, 255, 0.08); display: none; box-sizing: border-box; border-top-color: rgb(46, 89, 158); border-top-style: solid; border-top-width: 1px; border-right-color: rgb(46, 89, 158); border-right-style: solid; border-right-width: 1px; border-bottom-color: rgb(46, 89, 158); border-bottom-style: solid; border-bottom-width: 1px; border-left-color: rgb(46, 89, 158); border-left-style: solid; border-left-width: 1px; }.result-image p { font-size: 0.9rem; color: rgb(176, 176, 176); margin-top: 1.5rem; }.loading-spinner { display: none; border-top-color: rgb(255, 87, 34); border-top-style: solid; border-top-width: 5px; border-right-color: rgb(68, 68, 68); border-right-style: solid; border-right-width: 5px; border-bottom-color: rgb(68, 68, 68); border-bottom-style: solid; border-bottom-width: 5px; border-left-color: rgb(68, 68, 68); border-left-style: solid; border-left-width: 5px; border-top-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%; border-bottom-left-radius: 50%; width: 40px; height: 40px; margin-top: 30px; margin-right: auto; margin-bottom: 30px; margin-left: auto; }@keyframes spin{  }@keyframes fadeIn{  }@media (max-width: 768px) { body { padding-top: 1rem; padding-right: 1rem; padding-bottom: 1rem; padding-left: 1rem; }h1 { font-size: 2.5rem; }h2 { font-size: 1rem; }.form, .result, .result-image { padding-top: 1.5rem; padding-right: 1.5rem; padding-bottom: 1.5rem; padding-left: 1.5rem; border-top-left-radius: 1rem; border-top-right-radius: 1rem; border-bottom-right-radius: 1rem; border-bottom-left-radius: 1rem; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); }button { padding-top: 0.9rem; padding-right: 1.8rem; padding-bottom: 0.9rem; padding-left: 1.8rem; font-size: 1rem; }input[type="text"], select, textarea { padding-top: 0.8rem; padding-right: 0.8rem; padding-bottom: 0.8rem; padding-left: 0.8rem; font-size: 0.95rem; border-top-left-radius: 0.6rem; border-top-right-radius: 0.6rem; border-bottom-right-radius: 0.6rem; border-bottom-left-radius: 0.6rem; }.checkbox-group { flex-direction: column; } }</style>
+</head>
+<body>
+  <h1>AI Icon Generator</h1>
+  <h2>by mastergyu</h2>
+
+  <div class="form">
+    <label for="keyword">
+      Masukkan Kata Kunci
+    </label>
+    <input type="text" id="keyword" placeholder="Contoh: Kota Padang">
+    <button onclick="autoFillKeyword()">✨ Ide Pilihan AI</button>
+
+    <div class="checkbox-group">
+      <label><input type="checkbox" id="imageOnly"> Buat Prompt Berdasarkan Gambar Saja</label>
+      <label><input type="checkbox" id="customMode"> Kustomisasi</label>
+      <label><input type="checkbox" id="addKeywordTitle"> Tambahkan judul sesuai kata kunci di atas kanvas</label>
+    </div>
+
+    <label for="iconNumber">Jumlah Ikon</label>
+    <select id="iconNumber" onchange="toggleCustom('iconNumber')">
+      <option selected="">None</option>
+      <option>1 Icon (1x1)</option>
+      <option>2 Icons (2x1)</option>
+      <option>3 Icons (3x1)</option>
+      <option>4 Icons (2x2)</option>
+      <option>6 Icons (3x2)</option>
+      <option>8 Icons (4x2)</option>
+      <option>9 Icons (3x3)</option>
+      <option>12 Icons (4x3)</option>
+      <option>16 Icons (4x4)</option>
+      <option>20 Icons (5x4)</option>
+      <option>25 Icons (5x5)</option>
+      <option>36 Icons (6x6)</option>
+      <option>48 Icons (6x8)</option>
+      <option>64 Icons (8x8)</option>
+      <option>81 Icons (9x9)</option>
+      <option>100 Icons (10x10)</option>
+      <option>144 Icons (12x12)</option>
+      <option>196 Icons (14x14)</option>
+      <option>225 Icons (15x15)</option>
+      <option>256 Icons (16x16)</option>
+      <option>324 Icons (18x18)</option>
+      <option>400 Icons (20x20)</option>
+      <option>Custom...</option>
+    </select>
+    <input type="text" id="iconNumberCustom" placeholder="Contoh: 7x3" style="display: none;">
+
+    <label for="angle">Sudut Kamera / Perspektif</label>
+    <select id="angle" onchange="toggleCustom('angle')">
+      <option>None</option>
+      <option>Isometric</option>
+      <option>Top-down</option>
+      <option>Side View</option>
+      <option>Flat</option>
+      <option>3D</option>
+      <option>Overhead</option>
+      <option>Front-facing</option>
+      <option>Low angle</option>
+      <option>High angle</option>
+      <option>Perspective Tilt</option>
+      <option>Close-up</option>
+      <option>Zoomed-out</option>
+      <option>Wide angle</option>
+      <option>Bird's eye</option>
+      <option>Worm's eye</option>
+      <option>Oblique</option>
+      <option>Axonometric</option>
+      <option>Orthographic</option>
+      <option>Dynamic angle</option>
+      <option>Surreal angle</option>
+      <option>Cinematic</option>
+      <option>Custom...</option>
+    </select>
+    <input type="text" id="angleCustom" placeholder="Masukkan sudut kustom" style="display: none;">
+
+    <label for="style">Gaya Ikon</label>
+    <select id="style" onchange="toggleCustom('style')">
+      <option>None</option>
+      <option>Flat Design</option>
+      <option>3D Render</option>
+      <option>3D C4D-STYLE</option>
+      <option>Plastic Style</option>
+      <option>Glass Style</option> <!-- Explicitly added Glass Style from your list -->
+      <option>Origami</option>
+      <option>Paper Cut</option>
+      <option>Chalkboard</option>
+      <option>Watercolor</option>
+      <option>Claymation</option>
+      <option>Doodle</option>
+      <option>Realistic Render</option>
+      <option>Isometric Vector</option>
+      <option>Anime Style</option>
+      <option>Lofi Style</option>
+      <option>Steampunk</option>
+      <option>Futuristic</option>
+      <option>Cyberpunk</option>
+      <option>Retro Style</option>
+      <option>Vaporwave</option>
+      <option>Minimalist</option>
+      <option>Monoline</option>
+      <option>Sketch</option>
+      <option>Comic Style</option>
+      <option>Manga Style</option>
+      <option>Neon Glow</option>
+      <option>Duotone</option>
+      <option>Hand-Drawn</option>
+      <option>Plastic Toy</option>
+      <option>Gradient Flat</option>
+      <option>3D Plastic</option>
+      <option>Woodcut</option>
+      <option>Pixelated Vector</option>
+      <option>Blueprint Style</option>
+      <option>Shadow Icon</option>
+      <option>UI Glyph</option>
+      <option>Material Design</option>
+      <option>Realistic Photo</option>
+      <option>Graffiti</option>
+      <option>Cartoon</option>
+      <option>Vector Icon</option>
+      <option>Ink Brush</option>
+      <option>Textured Flat</option>
+      <option>Noise Gradient</option>
+      <option>3D Soft</option>
+      <option>Hyperrealistic</option>
+      <option>Blender Style</option>
+      <option>Vector Grid</option>
+      <option>Isometric Voxel</option>
+      <option>Spray Paint</option>
+      <option>Cut-out Shape</option>
+      <option>Marker Pen</option>
+      <option>Retro Sticker</option>
+      <option>Bubble Icon</option>
+      <option>Paper Collage</option>
+      <option>Origami Folded</option>
+      <option>3D Wireframe</option>
+      <option>Noise Textured</option>
+      <option>Hollow Line</option>
+      <option>Dynamic Icon</option>
+      <option>Sketch Line</option>
+      <option>Multi-layer Flat</option>
+      <option>Layered 3D</option>
+      <option>Abstract Shape</option>
+      <option>Glow Line</option>
+      <option>Light Beam</option>
+      <option>Grunge Style</option>
+      <option>AI Line Style</option>
+      <option>Plastic Shine</option>
+      <option>Voxel Art</option>
+      <option>AR Interface</option>
+      <option>Monochrome Fill</option>
+      <option>Framed Icon</option>
+      <option>Bordered Icon</option>
+      <option>Depth Line</option>
+      <option>Blueprint Render</option>
+      <option>Vintage Print</option>
+      <option>Pixel Mosaic</option>
+      <option>Transparent Line</option>
+      <option>Hologram</option>
+      <option>Dashboard UI</option>
+      <option>Minimal Depth</option>
+      <option>Bubble Flat</option>
+      <option>Soft Glow</option>
+      <option>Embossed</option>
+      <option>Carved Wood</option>
+      <option>Inked Stamp</option>
+      <option>Scratch Style</option>
+      <option>Circuit Icon
+      </option><option>Data Glyph</option>
+      <option>Puzzle Cut</option>
+      <option>Low Poly</option>
+      <option>Smooth Vector</option>
+      <option>Shaded Flat</option>
+      <option>Jittery Line</option>
+      <option>Abstract Fill</option>
+      <option>Creative Combo</option>
+      <option>Crosshatched</option>
+      <option>Blend Flat</option>
+      <option>Custom...</option>
+    </select>
+    <input type="text" id="styleCustom" placeholder="Masukkan gaya kustom" style="display: none;">
+
+    <label for="palette">Tema Palet Warna</label>
+    <select id="palette" onchange="toggleCustom('palette')">
+      <option selected="">None</option>
+      <option>Ice Blue</option>
+      <option>Sunset Coral</option>
+      <option>Mint Cream</option>
+      <option>Lavender Dream</option>
+      <option>Retro Teal</option>
+      <option>Neon Pop</option>
+      <option>Warm Earth</option>
+      <option>Midnight Sky</option>
+      <option>Pink Punch</option>
+      <option>Ocean Mist</option>
+      <option>Forest Fern</option>
+      <option>Sand Dune</option>
+      <option>Mocha Glow</option>
+      <option>Peach Blush</option>
+      <option>Lemon Zest</option>
+      <option>Sky Breeze</option>
+      <option>Cherry Bloom</option>
+      <option>Arctic Night</option>
+      <option>Soft Clay</option>
+      <option>Bubblegum Pop</option>
+      <option>Foggy Lilac</option>
+      <option>Moss Green</option>
+      <option>Graphite Cool</option>
+      <option>Blush Beige</option>
+      <option>Seafoam Pearl</option>
+      <option>Navy Rose</option>
+      <option>Terracotta Tone</option>
+      <option>Cloud White</option>
+      <option>Salmon Berry</option>
+      <option>Stone Grey</option>
+      <option>Citrus Splash</option>
+      <option>Amber Dust</option>
+      <option>Pine Shadow</option>
+      <option>Denim Light</option>
+      <option>Apricot Mist</option>
+      <option>Tropical Leaf</option>
+      <option>Rustic Sand</option>
+      <option>Silver Frost</option>
+      <option>Wine Plum</option>
+      <option>Teal Whisper</option>
+      <option>Aqua Mint</option>
+      <option>Cranberry Ice</option>
+      <option>Mustard Pop</option>
+      <option>Olive Fog</option>
+      <option>Snow Grape</option>
+      <option>Honey Drift</option>
+      <option>Maroon Glow</option>
+      <option>Blueberry Frost</option>
+      <option>Glacier Aqua</option>
+      <option>Cocoa Pebble</option>
+      <option>Pastel Moss</option>
+      <option>Coral Dust</option>
+      <option>Mango Cream</option>
+      <option>Blue Slate</option>
+      <option>Ivory Sun</option>
+      <option>Lemon Ice</option>
+      <option>Lilac Breeze</option>
+      <option>Cinnamon Milk</option>
+      <option>Frosty Sky</option>
+      <option>Banana Milk</option>
+      <option>Sea Salt</option>
+      <option>Pink Haze</option>
+      <option>Electric Teal</option>
+      <option>Mauve Dust</option>
+      <option>Spring Meadow</option>
+      <option>Caramel Ice</option>
+      <option>Rose Sand</option>
+      <option>Arctic Cloud</option>
+      <option>Plum Cream</option>
+      <option>Celadon Mist</option>
+      <option>Cactus Fog</option>
+      <option>Soft Amber</option>
+      <option>Moon Lavender</option>
+      <option>Storm Cloud</option>
+      <option>Canary Glow</option>
+      <option>Midnight Violet</option>
+      <option>Ash Peach</option>
+      <option>Vintage Rose</option>
+      <option>Cloud Blue</option>
+      <option>Mint Sky</option>
+      <option>Light Charcoal</option>
+      <option>Tangerine Cream</option>
+      <option>Milky Olive</option>
+      <option>Indigo Ice</option>
+      <option>Blush Coral</option>
+      <option>Cappuccino Foam</option>
+      <option>Powder Lemon</option>
+      <option>Fog Mint</option>
+      <option>Coffee Cream</option>
+      <option>Dusty Peach</option>
+      <option>Faded Teal</option>
+      <option>Green Tea</option>
+      <option>Pale Blush</option>
+      <option>Autumn Smoke</option>
+      <option>Rosewater</option>
+      <option>Sky Pearl</option>
+      <option>Lilac Stone</option>
+      <option>Glacier Pink</option>
+      <option>Pastel Navy</option>
+      <option>Soft Pistachio</option>
+      <option>Custom...</option>
+    </select>
+    <input type="text" id="paletteCustom" placeholder="Masukkan palet kustom" style="display: none;">
+
+    <label for="background">Kanvas Latar Belakang</label>
+    <select id="background" onchange="toggleCustom('background')">
+      <option>None</option>
+      <option>White</option>
+      <option>Transparent</option>
+      <option>Dark</option>
+      <option>Gradient</option>
+      <option>Sky Blue</option>
+      <option>Patterned</option>
+      <option>Textured</option>
+      <option>Blurred</option>
+      <option>Soft Glow</option>
+      <option>Grid</option>
+      <option>Retro Wallpaper</option>
+      <option>Illustrated Scene
+      </option><option>Studio Lighting</option>
+      <option>Futuristic Environment</option>
+      <option>Custom...</option>
+    </select>
+    <input type="text" id="backgroundCustom" placeholder="Masukkan latar belakang kustom" style="display: none;">
+
+    <label for="embedText">Sematkan Teks (opsional)</label>
+    <input type="text" id="embedText" placeholder="Contoh: Nama atau judul ikon">
+
+    <label for="aiModel">Pilih Model AI untuk Generasi Gambar</label>
+    <select id="aiModel">
+      <option value="imagen">Google Imagen (Default)</option>
+      <option value="dalle">OpenAI DALL-E</option>
+    </select>
+
+    <button onclick="generatePrompt()">Buat Prompt Ikon</button>
+  </div>
+
+  <div class="result">
+    <div class="prompt-header">
+      <h3>Prompt yang Dihasilkan:</h3>
+      <button class="copy-button" onclick="copyPrompt()">
+        <i class="fas fa-copy"></i>
+        <span id="copyFeedback" class="copy-feedback">Tersalin!</span>
+      </button>
+    </div>
+    <textarea id="output" readonly=""></textarea>
+  </div>
+
+  <!-- Section for displaying the generated image -->
+  <div class="result-image" id="imageResultSection">
+    <div class="loading-spinner" id="loadingSpinner"></div>
+    <!-- <img> tag removed as requested -->
+    <p id="imageError" style="color: red; margin-top: 10px; display: none;"></p>
+    <!-- Removed note about backend for actual image generation -->
+  </div>
+
+  <script>
+    /**
+     * Toggles the visibility of a custom input field based on the selected option.
+     * Mengubah visibilitas kolom input kustom berdasarkan opsi yang dipilih.
+     * @param {string} id - The ID of the select element. ID elemen select.
+     */
+    function toggleCustom(id) {
+      const select = document.getElementById(id);
+      const customInput = document.getElementById(id + 'Custom');
+      if (select.value === 'Custom...') {
+        customInput.style.display = 'block';
+        customInput.focus(); // Focus on the custom input for immediate typing
+      } else {
+        customInput.style.display = 'none';
+        customInput.value = ''; // Clear custom input when not in use
+      }
+    }
+
+    /**
+     * Fills the keyword input with a random idea from a predefined list.
+     * Mengisi kolom input kata kunci dengan ide acak dari daftar yang telah ditentukan.
+     */
+    function autoFillKeyword() {
+      // These are English examples, implying translation would happen on backend.
+      const ideas = ['Jakarta Skyline', 'Balinese Temple', 'Bandung Cafés', 'Padang Culture'];
+      const randomIdea = ideas[Math.floor(Math.random() * ideas.length)];
+      document.getElementById('keyword').value = randomIdea;
+    }
+
+    /**
+     * Retrieves the value from either a select element or its associated custom input.
+     * Mengambil nilai dari elemen select atau input kustom terkait.
+     * @param {string} id - The ID of the select element. ID elemen select.
+     * @returns {string} The selected or custom value. Nilai yang dipilih atau kustom.
+     */
+    function getValue(id) {
+      const select = document.getElementById(id);
+      const custom = document.getElementById(id + 'Custom');
+      return select.value === 'Custom...' ? custom.value : select.value;
+    }
+
+    /**
+     * Copies the generated prompt text to the clipboard and shows feedback.
+     * Menyalin teks prompt yang dihasilkan ke clipboard dan menampilkan umpan balik.
+     */
+    function copyPrompt() {
+      const outputTextarea = document.getElementById('output');
+      outputTextarea.select(); // Select the text in the textarea
+      outputTextarea.setSelectionRange(0, 99999); // For mobile devices
+
+      // Use document.execCommand('copy') for better compatibility in iframes
+      try {
+        const successful = document.execCommand('copy');
+        const msg = successful ? 'Tersalin!' : 'Gagal menyalin!';
+        const feedbackElem = document.getElementById('copyFeedback');
+        feedbackElem.textContent = msg;
+        feedbackElem.classList.add('show');
+        setTimeout(() => {
+          feedbackElem.classList.remove('show');
+        }, 1500); // Hide feedback after 1.5 seconds
+      } catch (err) {
+        console.error('Failed to copy text: ', err);
+        const feedbackElem = document.getElementById('copyFeedback');
+        feedbackElem.textContent = 'Gagal menyalin!';
+        feedbackElem.classList.add('show');
+        setTimeout(() => {
+          feedbackElem.classList.remove('show');
+        }, 1500);
+      }
+    }
+
+    /**
+     * Generates the AI prompt based on user selections and updates the textarea.
+     * Membuat prompt AI berdasarkan pilihan pengguna dan memperbarui textarea.
+     * Mensimulasikan tampilan pembuatan gambar (panggilan API sebenarnya membutuhkan backend).
+     */
+    async function generatePrompt() {
+      const keyword = document.getElementById('keyword').value;
+      const imageOnly = document.getElementById('imageOnly').checked;
+      const customMode = document.getElementById('customMode').checked;
+      const addKeywordTitle = document.getElementById('addKeywordTitle').checked; // Dapatkan status checkbox baru
+      const angle = getValue('angle');
+      const style = getValue('style'); // Get the value for dynamic style
+      const palette = getValue('palette'); // Get the value for color palette
+      const background = getValue('background');
+      const embedText = document.getElementById('embedText').value;
+      const selectedAiModel = document.getElementById('aiModel').value; // Dapatkan model AI yang dipilih
+
+      let finalPrompt = "";
+
+      if (imageOnly) {
+        // High priority: If imageOnly is checked, use its specific prompt
+        finalPrompt = "Transform this photo into a high-quality 3D isometric illustration with a clean and soft shadow. Use an isometric perspective and a friendly, approachable style. Render the subject with a smooth, polished 3D appearance. Remove the background entirely (transparent). Make sure the final result has a clean, modern icon aesthetic.";
+      } else if (customMode) {
+        // If Custom is checked (and imageOnly is not), generate structured text prompt
+        let customPromptParts = [];
+        
+        // Dynamically get the style, default to '3D isometric' if 'None' is selected
+        const dynamicStyle = (style && style !== 'None') ? style : "3D isometric";
+        
+        // Base prompt now uses dynamic style
+        let basePrompt = `Transform this photo into a ${dynamicStyle}, high-quality 3D render, clean shadow`;
+        let dynamicDetails = [];
+
+        if (angle && angle !== 'None') {
+            dynamicDetails.push(`${angle} perspective`);
+        }
+        
+        // Add color palette to dynamic details
+        if (palette && palette !== 'None') {
+            dynamicDetails.push(`${palette} color palette`);
+        }
+
+        if (background && background !== 'None') {
+            dynamicDetails.push(`${background} background canvas`);
+        }
+
+        if (dynamicDetails.length > 0) {
+            basePrompt += `, ${dynamicDetails.join(', ')}`;
+        }
+        basePrompt += "."; 
+
+        if (embedText) {
+            basePrompt += ` Include embedded text: '${embedText}'.`;
+        }
+        finalPrompt = basePrompt;
+        
+      } else {
+        // Default behavior if neither imageOnly nor Custom is checked
+        let promptParts = [];
+        const number = getValue('iconNumber');
+        if (number && number !== 'None') {
+            promptParts.push(`Generate a single image containing a collection of ${number} icons themed around '${keyword}'.`);
+            promptParts.push(`The icons should be arranged in a grid layout.`);
+        } else {
+            promptParts.push(`Generate an icon themed around '${keyword}'.`);
+        }
+
+        let styleAndAnglePart = '';
+        if (style && style !== 'None') {
+            styleAndAnglePart += `in a ${style} style`;
+        }
+        if (angle && angle !== 'None') {
+            if (styleAndAnglePart) {
+                styleAndAnglePart += ` with a ${angle} perspective`;
+            } else {
+                styleAndAnglePart += `with a ${angle} perspective`;
+            }
+        }
+        if (styleAndAnglePart) {
+            promptParts.push(`Each icon must be designed ${styleAndAnglePart}.`);
+        }
+
+        if (palette && palette !== 'None') {
+          promptParts.push(`Use a color palette in ${palette} style.`);
+        }
+
+        if (background && background !== 'None') {
+          promptParts.push(`Set the background canvas to ${background}.`);
+        }
+
+        if (embedText) {
+          promptParts.push(`Include embedded text: '${embedText}'.`);
+        }
+        finalPrompt = promptParts.join(' ').replace(/\. \./g, '.');
+      }
+
+      // Add "Add title based on keyword" instruction if checkbox is checked
+      if (addKeywordTitle) {
+          // It's crucial to consider where this instruction makes most sense for the AI.
+          // Appending it to the end is generally safe.
+          finalPrompt += ` Include a title above the image based on the keyword: '${keyword}'.`;
+      }
+
+
+      document.getElementById('output').value = finalPrompt;
+
+      // --- Frontend display logic for the (hypothetical) generated image ---
+      const imageResultSection = document.getElementById('imageResultSection');
+      const loadingSpinner = document.getElementById('loadingSpinner');
+      const imageErrorElem = document.getElementById('imageError');
+
+      imageResultSection.style.display = 'block';
+      imageErrorElem.style.display = 'none';
+      imageErrorElem.textContent = '';
+      loadingSpinner.style.display = 'block'; // Tampilkan spinner loading
+
+      setTimeout(async () => {
+        loadingSpinner.style.display = 'none'; // Sembunyikan spinner setelah "simulasi"
+
+        // Karena tidak ada panggilan API sebenarnya dari frontend,
+        // kita tidak akan mengatur `src` gambar atau menampilkannya.
+        // Bagian ini hanya akan mensimulasikan proses loading.
+
+      }, 2000); // Simulasikan penundaan 2 detik untuk proses generasi
+    }
+  </script>
+
+
+</body></html>
