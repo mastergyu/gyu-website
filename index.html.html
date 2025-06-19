@@ -1,12 +1,283 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AI Icon Generator</title>
   <!-- Google Fonts - Inter for clean typography -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>body { font-family: "Inter", sans-serif; background-color: initial; background-image: linear-gradient(135deg, rgb(26, 26, 46) 0%, rgb(22, 33, 62) 100%); margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; padding-top: 2.5rem; padding-right: 2.5rem; padding-bottom: 2.5rem; padding-left: 2.5rem; color: rgb(224, 224, 224); display: flex; flex-direction: column; align-items: center; min-height: 100vh; box-sizing: border-box; }h1 { font-size: 3.2rem; margin-bottom: 0.6rem; color: rgb(233, 69, 96); font-weight: 800; text-align: center; text-shadow: 0 0 15px rgba(233, 69, 96, 0.4); }h2 { font-size: 1.2rem; font-weight: 500; margin-bottom: 3rem; color: rgb(176, 176, 176); text-align: center; }h3 { font-size: 1.4rem; color: rgb(224, 224, 224); margin-bottom: 1.2rem; font-weight: 600; }.form { max-width: 700px; width: 100%; display: flex; flex-direction: column; background-color: rgb(15, 52, 96); background-image: initial; padding-top: 3rem; padding-right: 3rem; padding-bottom: 3rem; padding-left: 3rem; border-top-left-radius: 1.5rem; border-top-right-radius: 1.5rem; border-bottom-right-radius: 1.5rem; border-bottom-left-radius: 1.5rem; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5) , 0 0 0 1px rgba(255, 255, 255, 0.08); box-sizing: border-box; border-top-color: rgb(46, 89, 158); border-top-style: solid; border-top-width: 1px; border-right-color: rgb(46, 89, 158); border-right-style: solid; border-right-width: 1px; border-bottom-color: rgb(46, 89, 158); border-bottom-style: solid; border-bottom-width: 1px; border-left-color: rgb(46, 89, 158); border-left-style: solid; border-left-width: 1px; }label { font-weight: 600; color: rgb(201, 214, 223); margin-bottom: 0.35rem; display: block; font-size: 1rem; }input[type="text"], select { width: 100%; padding-top: 1rem; padding-right: 1rem; padding-bottom: 1rem; padding-left: 1rem; font-size: 1rem; border-top-color: rgb(44, 74, 126); border-top-style: solid; border-top-width: 2px; border-right-color: rgb(44, 74, 126); border-right-style: solid; border-right-width: 2px; border-bottom-color: rgb(44, 74, 126); border-bottom-style: solid; border-bottom-width: 2px; border-left-color: rgb(44, 74, 126); border-left-style: solid; border-left-width: 2px; border-top-left-radius: 0.8rem; border-top-right-radius: 0.8rem; border-bottom-right-radius: 0.8rem; border-bottom-left-radius: 0.8rem; box-sizing: border-box; transition-property: border-color, box-shadow, background-color; transition-duration: 0.3s, 0.3s, 0.3s; transition-timing-function: ease, ease, ease; background-color: rgb(27, 58, 107); color: rgb(240, 240, 240); }input[type="text"]:focus, select:focus { border-top-color: rgb(255, 87, 34); border-right-color: rgb(255, 87, 34); border-bottom-color: rgb(255, 87, 34); border-left-color: rgb(255, 87, 34); box-shadow: 0 0 0 4px rgba(255, 87, 34, 0.3); outline-style: none; background-color: rgb(36, 75, 136); }.checkbox-group { display: flex; flex-wrap: wrap; margin-top: 0.8rem; margin-bottom: 0.8rem; }.checkbox-group label { font-weight: 500; display: flex; align-items: center; font-size: 0.95rem; color: rgb(201, 214, 223); cursor: pointer; }.checkbox-group input[type="checkbox"] { width: auto; margin-top: 0; margin-right: 0; margin-bottom: 0; margin-left: 0; transform: scale(1.2); cursor: pointer; }button { background-color: initial; background-image: linear-gradient(135deg, rgb(233, 69, 96) 0%, rgb(255, 87, 34) 100%); color: white; padding-top: 1rem; padding-right: 2.5rem; padding-bottom: 1rem; padding-left: 2.5rem; border-top-color: initial; border-top-style: none; border-top-width: initial; border-right-color: initial; border-right-style: none; border-right-width: initial; border-bottom-color: initial; border-bottom-style: none; border-bottom-width: initial; border-left-color: initial; border-left-style: none; border-left-width: initial; font-size: 1.1rem; border-top-left-radius: 0.8rem; border-top-right-radius: 0.8rem; border-bottom-right-radius: 0.8rem; border-bottom-left-radius: 0.8rem; cursor: pointer; transition-property: background, transform, box-shadow; transition-duration: 0.3s, 0.2s, 0.3s; transition-timing-function: ease, ease, ease; margin-top: 1.5rem; font-weight: 700; box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4) , 0 0 0 1px rgba(255, 255, 255, 0.05); letter-spacing: 0.03em; }button:hover { background-color: initial; background-image: linear-gradient(135deg, rgb(204, 54, 80) 0%, rgb(216, 72, 27) 100%); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(233, 69, 96, 0.5) , 0 0 0 1px rgba(255, 255, 255, 0.1); }button:active { transform: translateY(0); box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3); }.result { margin-top: 3rem; width: 100%; max-width: 700px; background-color: rgb(15, 52, 96); background-image: initial; padding-top: 3rem; padding-right: 3rem; padding-bottom: 3rem; padding-left: 3rem; border-top-left-radius: 1.5rem; border-top-right-radius: 1.5rem; border-bottom-right-radius: 1.5rem; border-bottom-left-radius: 1.5rem; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5) , 0 0 0 1px rgba(255, 255, 255, 0.08); box-sizing: border-box; border-top-color: rgb(46, 89, 158); border-top-style: solid; border-top-width: 1px; border-right-color: rgb(46, 89, 158); border-right-style: solid; border-right-width: 1px; border-bottom-color: rgb(46, 89, 158); border-bottom-style: solid; border-bottom-width: 1px; border-left-color: rgb(46, 89, 158); border-left-style: solid; border-left-width: 1px; }.prompt-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.2rem; }.copy-button { background-color: initial; background-image: none; border-top-color: initial; border-top-style: none; border-top-width: initial; border-right-color: initial; border-right-style: none; border-right-width: initial; border-bottom-color: initial; border-bottom-style: none; border-bottom-width: initial; border-left-color: initial; border-left-style: none; border-left-width: initial; color: rgb(201, 214, 223); font-size: 1.2rem; cursor: pointer; transition-property: color, transform; transition-duration: 0.2s, 0.2s; transition-timing-function: ease, ease; padding-top: 0.5rem; padding-right: 0.5rem; padding-bottom: 0.5rem; padding-left: 0.5rem; border-top-left-radius: 0.5rem; border-top-right-radius: 0.5rem; border-bottom-right-radius: 0.5rem; border-bottom-left-radius: 0.5rem; }.copy-button:hover { color: rgb(255, 87, 34); transform: scale(1.1); }.copy-feedback { font-size: 0.85rem; color: rgb(76, 175, 80); margin-left: 0.5rem; opacity: 0; }.copy-feedback.show { opacity: 1; }textarea { width: 100%; height: 200px; padding-top: 1.2rem; padding-right: 1.2rem; padding-bottom: 1.2rem; padding-left: 1.2rem; font-size: 0.98rem; border-top-color: rgb(44, 74, 126); border-top-style: solid; border-top-width: 2px; border-right-color: rgb(44, 74, 126); border-right-style: solid; border-right-width: 2px; border-bottom-color: rgb(44, 74, 126); border-bottom-style: solid; border-bottom-width: 2px; border-left-color: rgb(44, 74, 126); border-left-style: solid; border-left-width: 2px; border-top-left-radius: 0.8rem; border-top-right-radius: 0.8rem; border-bottom-right-radius: 0.8rem; border-bottom-left-radius: 0.8rem; background-color: rgb(27, 58, 107); background-image: initial; box-sizing: border-box; line-height: 1.7; color: rgb(240, 240, 240); transition-property: border-color, box-shadow, background-color; transition-duration: 0.3s, 0.3s, 0.3s; transition-timing-function: ease, ease, ease; }textarea:focus { border-top-color: rgb(255, 87, 34); border-right-color: rgb(255, 87, 34); border-bottom-color: rgb(255, 87, 34); border-left-color: rgb(255, 87, 34); box-shadow: 0 0 0 4px rgba(255, 87, 34, 0.3); outline-style: none; background-color: rgb(36, 75, 136); }.result-image { margin-top: 3rem; width: 100%; max-width: 700px; text-align: center; background-color: rgb(15, 52, 96); background-image: initial; padding-top: 3rem; padding-right: 3rem; padding-bottom: 3rem; padding-left: 3rem; border-top-left-radius: 1.5rem; border-top-right-radius: 1.5rem; border-bottom-right-radius: 1.5rem; border-bottom-left-radius: 1.5rem; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5) , 0 0 0 1px rgba(255, 255, 255, 0.08); display: none; box-sizing: border-box; border-top-color: rgb(46, 89, 158); border-top-style: solid; border-top-width: 1px; border-right-color: rgb(46, 89, 158); border-right-style: solid; border-right-width: 1px; border-bottom-color: rgb(46, 89, 158); border-bottom-style: solid; border-bottom-width: 1px; border-left-color: rgb(46, 89, 158); border-left-style: solid; border-left-width: 1px; }.result-image p { font-size: 0.9rem; color: rgb(176, 176, 176); margin-top: 1.5rem; }.loading-spinner { display: none; border-top-color: rgb(255, 87, 34); border-top-style: solid; border-top-width: 5px; border-right-color: rgb(68, 68, 68); border-right-style: solid; border-right-width: 5px; border-bottom-color: rgb(68, 68, 68); border-bottom-style: solid; border-bottom-width: 5px; border-left-color: rgb(68, 68, 68); border-left-style: solid; border-left-width: 5px; border-top-left-radius: 50%; border-top-right-radius: 50%; border-bottom-right-radius: 50%; border-bottom-left-radius: 50%; width: 40px; height: 40px; margin-top: 30px; margin-right: auto; margin-bottom: 30px; margin-left: auto; }@keyframes spin{  }@keyframes fadeIn{  }@media (max-width: 768px) { body { padding-top: 1rem; padding-right: 1rem; padding-bottom: 1rem; padding-left: 1rem; }h1 { font-size: 2.5rem; }h2 { font-size: 1rem; }.form, .result, .result-image { padding-top: 1.5rem; padding-right: 1.5rem; padding-bottom: 1.5rem; padding-left: 1.5rem; border-top-left-radius: 1rem; border-top-right-radius: 1rem; border-bottom-right-radius: 1rem; border-bottom-left-radius: 1rem; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); }button { padding-top: 0.9rem; padding-right: 1.8rem; padding-bottom: 0.9rem; padding-left: 1.8rem; font-size: 1rem; }input[type="text"], select, textarea { padding-top: 0.8rem; padding-right: 0.8rem; padding-bottom: 0.8rem; padding-left: 0.8rem; font-size: 0.95rem; border-top-left-radius: 0.6rem; border-top-right-radius: 0.6rem; border-bottom-right-radius: 0.6rem; border-bottom-left-radius: 0.6rem; }.checkbox-group { flex-direction: column; } }</style>
+  <style>
+    /* Basic Reset & Body Styling */
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); /* Dark, deep gradient background */
+      margin: 0;
+      padding: 2.5rem;
+      color: #e0e0e0; /* Light text for dark background */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+
+    /* Headings */
+    h1 {
+      font-size: 3.2rem;
+      margin-bottom: 0.6rem;
+      color: #e94560; /* Vibrant accent color */
+      font-weight: 800;
+      text-align: center;
+      text-shadow: 0 0 15px rgba(233, 69, 96, 0.4); /* Glowing text shadow */
+    }
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      margin-bottom: 3rem;
+      color: #b0b0b0;
+      text-align: center;
+    }
+    h3 {
+      font-size: 1.4rem;
+      color: #e0e0e0;
+      margin-bottom: 1.2rem;
+      font-weight: 600;
+    }
+
+    /* Form Container */
+    .form {
+      max-width: 700px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      background: #0f3460; /* Darker blue background for form */
+      padding: 3rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08); /* Stronger shadow */
+      box-sizing: border-box;
+      animation: fadeIn 0.8s ease-out;
+      border: 1px solid #2e599e; /* Subtle border for depth */
+    }
+
+    /* Labels */
+    label {
+      font-weight: 600;
+      color: #c9d6df; /* Lighter text for labels */
+      margin-bottom: 0.35rem;
+      display: block;
+      font-size: 1rem;
+    }
+
+    /* Input & Select Fields */
+    input[type="text"], select {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      border: 2px solid #2c4a7e; /* Darker border */
+      border-radius: 0.8rem;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+      background-color: #1b3a6b; /* Darker input background */
+      color: #f0f0f0; /* Lighter text color */
+    }
+    input[type="text"]:focus, select:focus {
+      border-color: #ff5722; /* Vibrant orange on focus */
+      box-shadow: 0 0 0 4px rgba(255, 87, 34, 0.3); /* Stronger focus glow */
+      outline: none;
+      background-color: #244b88; /* Slightly lighter on focus */
+    }
+
+    /* Checkbox Group */
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      margin-top: 0.8rem;
+      margin-bottom: 0.8rem;
+    }
+    .checkbox-group label {
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.95rem;
+      color: #c9d6df;
+      cursor: pointer;
+    }
+    .checkbox-group input[type="checkbox"] {
+        width: auto;
+        margin: 0;
+        transform: scale(1.2);
+        accent-color: #e94560; /* Accent color for checkbox */
+        cursor: pointer;
+    }
+
+    /* Buttons */
+    button {
+      background: linear-gradient(135deg, #e94560 0%, #ff5722 100%); /* Vibrant red-orange gradient */
+      color: white;
+      padding: 1rem 2.5rem;
+      border: none;
+      font-size: 1.1rem;
+      border-radius: 0.8rem;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      margin-top: 1.5rem;
+      font-weight: 700;
+      box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05); /* Enhanced shadow */
+      letter-spacing: 0.03em;
+    }
+    button:hover {
+      background: linear-gradient(135deg, #cc3650 0%, #d8481b 100%); /* Darker gradient on hover */
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(233, 69, 96, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1);
+    }
+    button:active {
+      transform: translateY(0);
+      box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3);
+    }
+
+    /* Result Textarea Container */
+    .result {
+      margin-top: 3rem;
+      width: 100%;
+      max-width: 700px;
+      background: #0f3460;
+      padding: 3rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      box-sizing: border-box;
+      border: 1px solid #2e599e;
+    }
+    .prompt-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1.2rem;
+    }
+    .copy-button {
+      background: none;
+      border: none;
+      color: #c9d6df; /* Lighter color for icon */
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: color 0.2s ease, transform 0.2s ease;
+      padding: 0.5rem;
+      border-radius: 0.5rem;
+    }
+    .copy-button:hover {
+      color: #ff5722; /* Vibrant accent on hover */
+      transform: scale(1.1);
+    }
+    .copy-feedback {
+      font-size: 0.85rem;
+      color: #4CAF50; /* Green for success message */
+      margin-left: 0.5rem;
+      opacity: 0;
+      transition: opacity 0.3s ease-out;
+    }
+    .copy-feedback.show {
+      opacity: 1;
+    }
+
+    textarea {
+      width: 100%;
+      height: 200px;
+      padding: 1.2rem;
+      font-size: 0.98rem;
+      border: 2px solid #2c4a7e;
+      border-radius: 0.8rem;
+      background: #1b3a6b;
+      resize: vertical;
+      box-sizing: border-box;
+      line-height: 1.7;
+      color: #f0f0f0;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    }
+    textarea:focus {
+        border-color: #ff5722;
+        box-shadow: 0 0 0 4px rgba(255, 87, 34, 0.3);
+        outline: none;
+        background-color: #244b88;
+    }
+
+    /* Image Result Section (no image to display directly) */
+    .result-image {
+      margin-top: 3rem;
+      width: 100%;
+      max-width: 700px;
+      text-align: center;
+      background: #0f3460;
+      padding: 3rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.08);
+      display: none; /* Still hidden by default, shown when loading */
+      box-sizing: border-box;
+      border: 1px solid #2e599e;
+    }
+    /* Removed .result-image img styling as image is not displayed */
+    .result-image p {
+        font-size: 0.9rem;
+        color: #b0b0b0;
+        margin-top: 1.5rem;
+    }
+
+    /* Loading Spinner */
+    .loading-spinner {
+        display: none;
+        border: 5px solid #444; /* Darker base for spinner */
+        border-top: 5px solid #ff5722; /* Vibrant accent color for spinner */
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 0.7s linear infinite;
+        margin: 30px auto;
+    }
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* Fade in animation for containers */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      body {
+        padding: 1rem;
+      }
+      h1 {
+        font-size: 2.5rem;
+      }
+      h2 {
+        font-size: 1rem;
+      }
+      .form, .result, .result-image {
+        padding: 1.5rem;
+        border-radius: 1rem;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+      button {
+        padding: 0.9rem 1.8rem;
+        font-size: 1rem;
+      }
+      input[type="text"], select, textarea {
+        padding: 0.8rem;
+        font-size: 0.95rem;
+        border-radius: 0.6rem;
+      }
+      .checkbox-group {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
   <h1>AI Icon Generator</h1>
@@ -16,18 +287,18 @@
     <label for="keyword">
       Masukkan Kata Kunci
     </label>
-    <input type="text" id="keyword" placeholder="Contoh: Kota Padang">
+    <input type="text" id="keyword" placeholder="Contoh: Kota Padang" />
     <button onclick="autoFillKeyword()">✨ Ide Pilihan AI</button>
 
     <div class="checkbox-group">
-      <label><input type="checkbox" id="imageOnly"> Buat Prompt Berdasarkan Gambar Saja</label>
-      <label><input type="checkbox" id="customMode"> Kustomisasi</label>
-      <label><input type="checkbox" id="addKeywordTitle"> Tambahkan judul sesuai kata kunci di atas kanvas</label>
+      <label><input type="checkbox" id="imageOnly" /> Buat Prompt Berdasarkan Gambar Saja</label>
+      <label><input type="checkbox" id="customMode" /> Kustomisasi</label>
+      <label><input type="checkbox" id="addKeywordTitle" /> Tambahkan judul sesuai kata kunci di atas kanvas</label>
     </div>
 
     <label for="iconNumber">Jumlah Ikon</label>
     <select id="iconNumber" onchange="toggleCustom('iconNumber')">
-      <option selected="">None</option>
+      <option selected>None</option>
       <option>1 Icon (1x1)</option>
       <option>2 Icons (2x1)</option>
       <option>3 Icons (3x1)</option>
@@ -52,7 +323,7 @@
       <option>400 Icons (20x20)</option>
       <option>Custom...</option>
     </select>
-    <input type="text" id="iconNumberCustom" placeholder="Contoh: 7x3" style="display: none;">
+    <input type="text" id="iconNumberCustom" placeholder="Contoh: 7x3" style="display:none" />
 
     <label for="angle">Sudut Kamera / Perspektif</label>
     <select id="angle" onchange="toggleCustom('angle')">
@@ -80,7 +351,7 @@
       <option>Cinematic</option>
       <option>Custom...</option>
     </select>
-    <input type="text" id="angleCustom" placeholder="Masukkan sudut kustom" style="display: none;">
+    <input type="text" id="angleCustom" placeholder="Masukkan sudut kustom" style="display:none" />
 
     <label for="style">Gaya Ikon</label>
     <select id="style" onchange="toggleCustom('style')">
@@ -173,8 +444,8 @@
       <option>Carved Wood</option>
       <option>Inked Stamp</option>
       <option>Scratch Style</option>
-      <option>Circuit Icon
-      </option><option>Data Glyph</option>
+      <option>Circuit Icon</moption>
+      <option>Data Glyph</option>
       <option>Puzzle Cut</option>
       <option>Low Poly</option>
       <option>Smooth Vector</option>
@@ -186,11 +457,11 @@
       <option>Blend Flat</option>
       <option>Custom...</option>
     </select>
-    <input type="text" id="styleCustom" placeholder="Masukkan gaya kustom" style="display: none;">
+    <input type="text" id="styleCustom" placeholder="Masukkan gaya kustom" style="display:none" />
 
     <label for="palette">Tema Palet Warna</label>
     <select id="palette" onchange="toggleCustom('palette')">
-      <option selected="">None</option>
+      <option selected>None</option>
       <option>Ice Blue</option>
       <option>Sunset Coral</option>
       <option>Mint Cream</option>
@@ -293,7 +564,7 @@
       <option>Soft Pistachio</option>
       <option>Custom...</option>
     </select>
-    <input type="text" id="paletteCustom" placeholder="Masukkan palet kustom" style="display: none;">
+    <input type="text" id="paletteCustom" placeholder="Masukkan palet kustom" style="display:none" />
 
     <label for="background">Kanvas Latar Belakang</label>
     <select id="background" onchange="toggleCustom('background')">
@@ -309,15 +580,15 @@
       <option>Soft Glow</option>
       <option>Grid</option>
       <option>Retro Wallpaper</option>
-      <option>Illustrated Scene
-      </option><option>Studio Lighting</option>
+      <option>Illustrated Scene</moption>
+      <option>Studio Lighting</option>
       <option>Futuristic Environment</option>
       <option>Custom...</option>
     </select>
-    <input type="text" id="backgroundCustom" placeholder="Masukkan latar belakang kustom" style="display: none;">
+    <input type="text" id="backgroundCustom" placeholder="Masukkan latar belakang kustom" style="display:none" />
 
     <label for="embedText">Sematkan Teks (opsional)</label>
-    <input type="text" id="embedText" placeholder="Contoh: Nama atau judul ikon">
+    <input type="text" id="embedText" placeholder="Contoh: Nama atau judul ikon" />
 
     <label for="aiModel">Pilih Model AI untuk Generasi Gambar</label>
     <select id="aiModel">
@@ -336,7 +607,7 @@
         <span id="copyFeedback" class="copy-feedback">Tersalin!</span>
       </button>
     </div>
-    <textarea id="output" readonly=""></textarea>
+    <textarea id="output" readonly></textarea>
   </div>
 
   <!-- Section for displaying the generated image -->
@@ -544,6 +815,5 @@
       }, 2000); // Simulasikan penundaan 2 detik untuk proses generasi
     }
   </script>
-
-
-</body></html>
+</body>
+</html>
